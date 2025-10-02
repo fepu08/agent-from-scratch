@@ -3,16 +3,16 @@ import { openai } from './ai'
 
 export const runLLM = async ({
   model = 'gpt-4o-mini',
-  message,
+  messages,
   temperature = 0.1, // measurement of "creativity" or more likely the randomness/entropy
 }: {
-  message: string
+  messages: AIMessage[]
   temperature?: number
   model?: string
 }) => {
   const response = await openai.chat.completions.create({
     model,
-    messages: [{ role: 'user', content: message }],
+    messages: messages,
     temperature,
   })
 
