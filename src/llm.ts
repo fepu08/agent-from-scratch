@@ -18,7 +18,7 @@ export const runLLM = async ({
   const formattedTools = tools?.map(zodFunction)
   const response = await openai.chat.completions.create({
     model,
-    messages: messages,
+    messages,
     temperature,
     tools: formattedTools,
     tool_choice: 'auto',
