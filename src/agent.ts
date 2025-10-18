@@ -53,10 +53,6 @@ export const runAgent = async ({
           }: ${(error as Error).message}`
           await saveToolResponse(toolCall.id, errorMessage)
         }
-
-        const toolResponse = await runTool(toolCall, userMessage)
-        await saveToolResponse(toolCall.id, toolResponse)
-        loader.update(`done: ${toolCall.function.name}`)
       }
     }
   }
